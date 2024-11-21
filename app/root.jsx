@@ -1,4 +1,4 @@
-import indexStyles from './index.css';
+import indexStyles from './styles/root.css';
 import {
   Links,
   LiveReload,
@@ -23,13 +23,14 @@ export default function App() {
           <header className="header">
             <ul className="nav-ul">
               <li className="nav-li">
-                {' '}
-                <NavLink className="nav-link" to="/" />
-                Home
+                <NavLink className="nav-link" to="/">
+                  Home
+                </NavLink>
               </li>
               <li className="nav-li">
-                <NavLink className="nav-link" to="/notes" />
-                Notes
+                <NavLink className="nav-link" to="/notes">
+                  Notes
+                </NavLink>
               </li>
             </ul>
           </header>

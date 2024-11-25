@@ -3,11 +3,11 @@ import {
   Links,
   LiveReload,
   Meta,
-  NavLink,
   Outlet,
   Scripts,
   ScrollRestoration
 } from '@remix-run/react';
+import MainNav from './components/navigation';
 
 export default function App() {
   return (
@@ -20,20 +20,7 @@ export default function App() {
       </head>
       <body>
         <main className="main">
-          <header className="header">
-            <ul className="nav-ul">
-              <li className="nav-li">
-                <NavLink className="nav-link" to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-li">
-                <NavLink className="nav-link" to="/notes">
-                  Notes
-                </NavLink>
-              </li>
-            </ul>
-          </header>
+          <MainNav />
           <article className="page-container">
             <Outlet />
           </article>

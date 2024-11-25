@@ -1,8 +1,11 @@
+import { Form, useNavigation } from '@remix-run/react';
 import styles from './newNoteForm.css';
 
 const NewNoteForm = () => {
+  const navigate = useNavigation();
+  const isDisabled = navigate.state === 'submitting';
   return (
-    <form method="POST" className="form">
+    <Form method="post" className="form" reloadDocument={false}>
       <div className="form-div">
         <label htmlFor="title" className="form-label">
           Title
@@ -31,10 +34,10 @@ const NewNoteForm = () => {
         ></textarea>
       </div>
 
-      <button type="submit" className="form-submit-btn">
+      <button disabled={isDisabled} className="form-submit-btn">
         Submit
       </button>
-    </form>
+    </Form>
   );
 };
 export function links() {

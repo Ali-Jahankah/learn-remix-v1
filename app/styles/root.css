@@ -10,6 +10,7 @@
 a,
 li {
   text-decoration: none;
+  color: inherit;
 }
 li {
   list-style: none;
@@ -25,6 +26,18 @@ li {
 .page-container {
   width: 100%;
   flex: 1;
+}
+.error-section div {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  margin: 1em auto;
+  gap: 1em;
+  text-align: center;
+  border-radius: 10px;
+  background: #1e1e1f;
+  color: #ff290d;
 }
 .header {
   width: 100%;

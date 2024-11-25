@@ -1,12 +1,11 @@
 import { Link, useLoaderData } from '@remix-run/react';
-import { getStoredNotes, storeNotes } from '../../helpers/notes';
-import NewNoteForm from '../../components/newNoteForm';
-import { links as formStyles } from '../../components/newNoteForm';
+import { getStoredNotes, storeNotes } from '../helpers/notes';
+import NewNoteForm from '../components/newNoteForm';
+import { links as formStyles } from '../components/newNoteForm';
 import { redirect } from '@remix-run/node';
-import NotesList, {
-  links as notesListStyles
-} from '../../components/notesList';
+import NotesList, { links as notesListStyles } from '../components/notesList';
 export default function Notes() {
+  console.log('Notes');
   const notes = useLoaderData();
   return (
     <>
@@ -22,6 +21,10 @@ export async function loader() {
 export async function action({ request }) {
   const formData = await request.formData();
   const noteData = Object.fromEntries(formData);
+  console.log(noteData);
+  if (noteData.title.trim().length < 2) {
+    return { message: 'Please enter the title' };
+  }
   const existingNotes = await getStoredNotes();
   noteData.id = new Date().toISOString();
   const updatedNotes = existingNotes.concat(noteData);

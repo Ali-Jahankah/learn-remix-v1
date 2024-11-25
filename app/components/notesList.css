@@ -17,6 +17,8 @@
   transition: all 0.7s;
   cursor: pointer;
   gap: 10px;
+  position: sticky;
+  top: 0;
   background: linear-gradient(rgb(207, 175, 255), rgb(145, 192, 211));
 }
 .note-div:hover {
@@ -28,11 +30,13 @@
 .note-description {
   font-size: 0.9rem;
 }
+
 @media screen and (min-width: 600px) {
   .note-div {
     width: 48%;
   }
 }
+
 @media screen and (min-width: 720px) {
   .note-div {
     width: 31%;

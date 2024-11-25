@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react';
 import styles from './notesList.css';
 const NotesList = ({ notes }) => {
   return (
@@ -6,9 +7,11 @@ const NotesList = ({ notes }) => {
         notes.map((note, index) => {
           return (
             <div className="note-div" key={index + note.id}>
-              <h6 className="note-index">#{index + 1}</h6>
-              <h3 className="note-title">{note.title}</h3>
-              <p className="note-description">{note.description}</p>
+              <Link to={note.id}>
+                <h6 className="note-index">#{index + 1}</h6>
+                <h3 className="note-title">{note.title}</h3>
+                <p className="note-description">{note.description}</p>
+              </Link>
             </div>
           );
         })

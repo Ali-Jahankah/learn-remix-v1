@@ -11,8 +11,9 @@
     rgba(255, 255, 255, 0.617)
   );
   margin: 1em auto;
-  position: sticky;
-  top: 0;
+}
+.error-text {
+  color: red;
 }
 .form-div {
   display: flex;

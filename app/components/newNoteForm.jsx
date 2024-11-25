@@ -1,12 +1,16 @@
-import { Form, useNavigation } from '@remix-run/react';
+import { Form, useActionData, useNavigation } from '@remix-run/react';
 import styles from './newNoteForm.css';
-
 const NewNoteForm = () => {
   const navigate = useNavigation();
+  const errorData = useActionData();
   const isDisabled = navigate.state === 'submitting';
+  console.log(errorData);
   return (
     <Form method="post" className="form" reloadDocument={false}>
       <div className="form-div">
+        {errorData?.message && (
+          <p className="error-text">{errorData.message}</p>
+        )}
         <label htmlFor="title" className="form-label">
           Title
         </label>
